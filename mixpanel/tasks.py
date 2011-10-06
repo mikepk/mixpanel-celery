@@ -5,8 +5,10 @@ import urlparse
 import logging
 import socket
 
-from django.utils import simplejson
+#from django.utils import simplejson
+import json
 
+import pybald.celery
 from celery.task import Task
 from celery.registry import tasks
 
@@ -118,7 +120,7 @@ class EventTracker(Task):
         Build HTTP params to record the given event and properties.
         """
         params = {'event': event, 'properties': properties}
-        data = base64.b64encode(simplejson.dumps(params))
+        data = base64.b64encode(json.dumps(params))
 
         data_var = mp_settings.MIXPANEL_DATA_VARIABLE
         url_params = urllib.urlencode({data_var: data, 'test': is_test})

@@ -1,6 +1,7 @@
 """Default configuration values and documentation"""
 
-from django.conf import settings
+# from django.conf import settings
+import project as settings
 
 """
 .. data:: MIXPANEL_API_TOKEN
@@ -13,7 +14,7 @@ from django.conf import settings
 
     .. _`mixpanel account page`: http://mixpanel.com/user/account/
 """
-MIXPANEL_API_TOKEN = getattr(settings, 'MIXPANEL_API_TOKEN', None)
+MIXPANEL_API_TOKEN = getattr(settings, 'MIXPANEL_API_TOKEN') or  None
 
 """
 .. data:: MIXPANEL_RETRY_DELAY
@@ -24,7 +25,7 @@ MIXPANEL_API_TOKEN = getattr(settings, 'MIXPANEL_API_TOKEN', None)
 
     Defaults to 5 minutes.
 """
-MIXPANEL_RETRY_DELAY = getattr(settings, 'MIXPANEL_RETRY_DELAY', 60*5)
+MIXPANEL_RETRY_DELAY = getattr(settings, 'MIXPANEL_RETRY_DELAY') or  60*5
 
 """
 .. data:: MIXPANEL_MAX_RETRIES
@@ -33,7 +34,7 @@ MIXPANEL_RETRY_DELAY = getattr(settings, 'MIXPANEL_RETRY_DELAY', 60*5)
 
     Defaults to 5 attempts.
 """
-MIXPANEL_MAX_RETRIES = getattr(settings, 'MIXPANEL_MAX_RETRIES', 5)
+MIXPANEL_MAX_RETRIES = getattr(settings, 'MIXPANEL_MAX_RETRIES') or  5
 
 """
 .. data:: MIXPANEL_API_TIMEOUT
@@ -44,15 +45,14 @@ MIXPANEL_MAX_RETRIES = getattr(settings, 'MIXPANEL_MAX_RETRIES', 5)
 
     Defaults to 5 seconds.
 """
-MIXPANEL_API_TIMEOUT = getattr(settings, 'MIXPANEL_API_TIMEOUT', 5)
+MIXPANEL_API_TIMEOUT = getattr(settings, 'MIXPANEL_API_TIMEOUT') or  5
 
 """
 .. data:: MIXPANEL_API_SERVER
 
     URL for the mixpanel api server. This probably shouldn't change.
 """
-MIXPANEL_API_SERVER = getattr(settings, 'MIXPANEL_API_SERVER',
-                               'api.mixpanel.com')
+MIXPANEL_API_SERVER = getattr(settings, 'MIXPANEL_API_SERVER') or 'api.mixpanel.com'
 
 """
 .. data:: MIXPANEL_TRACKING_ENDPOINT
@@ -61,8 +61,7 @@ MIXPANEL_API_SERVER = getattr(settings, 'MIXPANEL_API_SERVER',
 
     Mind the slashes.
 """
-MIXPANEL_TRACKING_ENDPOINT = getattr(settings, 'MIXPANEL_TRACKING_ENDPOINT',
-                               '/track/')
+MIXPANEL_TRACKING_ENDPOINT = getattr(settings, 'MIXPANEL_TRACKING_ENDPOINT') or '/track/'
 
 """
 .. data:: MIXPANEL_DATA_VARIABLE
@@ -70,8 +69,7 @@ MIXPANEL_TRACKING_ENDPOINT = getattr(settings, 'MIXPANEL_TRACKING_ENDPOINT',
     Name of the http GET variable used for transferring property information
     when registering events.
 """
-MIXPANEL_DATA_VARIABLE = getattr(settings, 'MIXPANEL_DATA_VARIABLE',
-                               'data')
+MIXPANEL_DATA_VARIABLE = getattr(settings, 'MIXPANEL_DATA_VARIABLE') or 'data'
 
 
 """
@@ -80,8 +78,7 @@ MIXPANEL_DATA_VARIABLE = getattr(settings, 'MIXPANEL_DATA_VARIABLE',
     The event identifier that indicates that a funnel is being tracked and not
     just a normal event.
 """
-MIXPANEL_FUNNEL_EVENT_ID = getattr(settings, 'MIXPANEL_FUNNEL_EVENT_ID',
-                               'mp_funnel')
+MIXPANEL_FUNNEL_EVENT_ID = getattr(settings, 'MIXPANEL_FUNNEL_EVENT_ID') or 'mp_funnel'
 
 """
 .. data:: MIXPANEL_TEST_ONLY
@@ -89,4 +86,4 @@ MIXPANEL_FUNNEL_EVENT_ID = getattr(settings, 'MIXPANEL_FUNNEL_EVENT_ID',
     If this value is True, then events will be sent to Mixpanel with the property
     test = 1 so that no events will actually be logged.
 """
-MIXPANEL_TEST_ONLY = getattr(settings, 'MIXPANEL_TEST_ONLY', False)
+MIXPANEL_TEST_ONLY = getattr(settings, 'MIXPANEL_TEST_ONLY') or  False
