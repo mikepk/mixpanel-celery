@@ -64,7 +64,7 @@ setup(
     packages=find_packages(),
     scripts=[],
     zip_safe=False,
-    install_requires=['celery>=1.0', 'django>=1.2'],
+    install_requires=['celery>=1.0'],
     tests_require=['nose>=0.11', 'coverage'],
     cmdclass = {'nosetests': RunTests},
     classifiers=[
