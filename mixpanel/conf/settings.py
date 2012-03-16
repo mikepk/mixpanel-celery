@@ -87,3 +87,11 @@ MIXPANEL_FUNNEL_EVENT_ID = getattr(settings, 'MIXPANEL_FUNNEL_EVENT_ID') or 'mp_
     test = 1 so that no events will actually be logged.
 """
 MIXPANEL_TEST_ONLY = getattr(settings, 'MIXPANEL_TEST_ONLY') or  False
+
+"""
+.. data:: MIXPANEL_IGNORE_RESULT
+
+    If this value is True, then events will not store results messages in the
+    clerey back end.
+"""
+MIXPANEL_IGNORE_RESULT = getattr(settings, 'MIXPANEL_IGNORE_RESULT') or  False
